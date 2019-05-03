@@ -1,0 +1,16 @@
+<form>
+    <mat-form-field style="width: 80px; margin-right: 5px;">
+        <input matInput placeholder="Chance" type="number" min="0" max="100" [(ngModel)]="mutationConfiguration.chance" [ngModelOptions]="{standalone: true}">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Configuration</mat-label>
+        <mat-select (selectionChange)="selectCreatureConfig($event)">
+            <mat-option value="-1">
+                    Select...
+            </mat-option>
+            <mat-option *ngFor="let creatureConfiguration of allCreatureConfigurations" value="{{creatureConfiguration.id}}">
+                    {{creatureConfiguration.name}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+</form>

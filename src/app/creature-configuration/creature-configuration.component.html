@@ -1,0 +1,28 @@
+<mat-card style="width: 265px; margin-bottom: 5px;">
+    <form>
+        <mat-form-field style="margin-right: 5px;">
+            <input matInput placeholder="Name" [(ngModel)]="creatureConfiguration.name" [ngModelOptions]="{standalone: true}">
+        </mat-form-field>
+        
+        <mat-form-field style="width: 80px;">
+            <input matInput type="color" placeholder="Color" [(ngModel)]="creatureConfiguration.color" [ngModelOptions]="{standalone: true}">
+        </mat-form-field>
+
+        <mat-form-field style="width: 85px; margin-right: 5px;">
+            <input matInput type="number" placeholder="Spawn Rate" [(ngModel)]="creatureConfiguration.spawnRate" [ngModelOptions]="{standalone: true}">
+        </mat-form-field>
+
+        <mat-form-field style="width: 85px; margin-right: 5px;">
+            <input matInput type="number" placeholder="Death Rate" [(ngModel)]="creatureConfiguration.deathRate" [ngModelOptions]="{standalone: true}">
+        </mat-form-field>
+
+        <mat-form-field style="width: 85px;">
+            <input matInput type="number" placeholder="Reproduction Rate" [(ngModel)]="creatureConfiguration.reproductionRate" [ngModelOptions]="{standalone: true}">
+        </mat-form-field>
+
+        <button mat-button (click)="createMutationConfig($event)">Add Mutation</button>
+        <app-mutation-configuration *ngFor="let mutationConfiguration of creatureConfiguration.mutationConfigurations"
+            [mutationConfiguration]="mutationConfiguration" [allCreatureConfigurations]="allCreatureConfigurations">
+        </app-mutation-configuration>
+    </form>
+</mat-card>
